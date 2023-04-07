@@ -1,3 +1,8 @@
+import java.util.Scanner; 
+public class MyClass{ 
+Scanner scanner=new Scanner(System.in); 
+
+
 public class SecondLargestInArrayExample{  
 public static int getSecondLargest(int[] a, int total){  
 int temp;  
@@ -14,7 +19,9 @@ for (int i = 0; i < total; i++)
             }  
         }  
        return a[total-2];  
-}  
+} 
+}
+
 public static void main(String args[]){  
 int a[]={1,2,5,6,3,2};  
 int b[]={44,66,99,77,33,22,55};  
