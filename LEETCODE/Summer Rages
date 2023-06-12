@@ -1,0 +1,30 @@
+class Solution {
+    public List<String> summaryRanges(int[] nums) {
+        // Trivial case: empty input array
+        if (nums.length == 0) return Collections.EMPTY_LIST;
+        
+        final char[] ARROW = new char[] { '-', '>' };
+        List<String> answer = new ArrayList<String>();
+        
+        // For every int in the array, compare to the next int.
+        // If they are not in sequence, write a new entry to the answer list.
+        // Always write something for the final array value.
+        int rangeStart = nums[0];
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < nums.length; i++) {
+            if (i == nums.length - 1 || nums[i] + 1 != nums[i+1]) {
+                if (nums[i] == rangeStart) answer.add(Integer.toString(rangeStart));
+                else {  // Add a range to the list
+                    sb.setLength(0);
+                    sb.append(rangeStart);
+                    sb.append(ARROW);
+                    sb.append(nums[i]);
+                    answer.add(sb.toString());
+                }
+                if (i < nums.length - 1) rangeStart = nums[i+1];
+            }
+        }
+        
+        return answer;
+    }
+}
